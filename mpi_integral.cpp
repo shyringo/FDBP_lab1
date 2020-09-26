@@ -7,6 +7,7 @@ int main(int argc,char** argv)
     int myid,numprocs;
     MPI_Status status;
     double local=0,dx=double(10)/double(N),integral=0;
+    clock_t time_start=clock();
     MPI_Init(&argc,&argv);
     MPI_Comm_rank(MPI_COMM_WORLD,&myid);
     MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
@@ -24,6 +25,8 @@ int main(int argc,char** argv)
             integral+=d;
         }
         cout<<"the integral of x*x in [0,10] is "<<integral<<endl;
+        clock_t time_end=clock();
+        cout<<"time cost is "<<(time_end-time_start)/double(CLOCKS_PER_SEC)<<endl;
     }
     MPI_Finalize();
 }
