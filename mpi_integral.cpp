@@ -25,8 +25,8 @@ int main(int argc,char** argv)
             integral+=d;
         }
         cout<<"the integral of x*x in [0,10] is "<<integral<<endl;
-        clock_t time_end=clock();
-        cout<<"time cost is "<<(time_end-time_start)/double(CLOCKS_PER_SEC)<<endl;
     }
     MPI_Finalize();
+    clock_t time_end=clock();
+    cout<<"i'm process"<<myid<<". My time cost is "<<(time_end-time_start)/double(CLOCKS_PER_SEC)<<endl;
 }

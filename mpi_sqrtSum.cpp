@@ -28,9 +28,8 @@ int main(int argc,char** argv)
     MPI_Reduce(&local,&SqrtSum,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
     if(myid==0){
         cout<<"the sum of the respective sqrt of 0 to "<<N-1<<" is "<<SqrtSum<<endl;
-        clock_t time_end=clock();
-        cout<<"time cost is "<<(time_end-time_start)/double(CLOCKS_PER_SEC)<<endl;
     }
     MPI_Finalize();
-    
+    clock_t time_end=clock();
+    cout<<"this is process "<<myid<<". My time cost is "<<(time_end-time_start)/double(CLOCKS_PER_SEC)<<endl;
 }
